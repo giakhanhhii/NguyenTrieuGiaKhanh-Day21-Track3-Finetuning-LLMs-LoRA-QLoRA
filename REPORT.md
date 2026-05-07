@@ -9,16 +9,16 @@
 - **Dataset**: `yahma/alpaca-cleaned`, **200 samples** (`180` train / `20` eval)
 - **max_seq_length**: `512` (p95 = `400`, rounded up)
 - **GPU**: `Tesla T4`, ~15.6 GB VRAM
-- **Training cost**: `$0.06` (tổng thời gian ~ `10.2` phút, @ `$0.35/hr`)
+- **Training cost**: `$0.07` (tổng thời gian ~ `11.6` phút, @ `$0.35/hr`)
 - **HF Hub link** (Option B): `Chưa push trong run này`
 
 ## 2. Rank Experiment Results
 
 | Rank | Trainable Params | Train Time | Peak VRAM | Eval Loss | Perplexity |
 |------|------------------|------------|-----------|-----------|------------|
-| 8    | 2,293,760        | 3.08 min   | 5.51 GB   | 1.4511    | 4.2678     |
-| 16   | 4,587,520        | 4.03 min   | 4.75 GB   | 1.4359    | 4.2035     |
-| 64   | 18,350,080       | 3.11 min   | 6.49 GB   | 1.4331    | 4.1915     |
+| 8    | 2,293,760        | 3.48 min   | 5.51 GB   | 1.4511    | 4.2678     |
+| 16   | 4,587,520        | 4.62 min   | 4.75 GB   | 1.4359    | 4.2035     |
+| 64   | 18,350,080       | 3.51 min   | 6.49 GB   | 1.4331    | 4.1915     |
 | Base | -                | -          | -         | N/A       | N/A        |
 
 > Nguồn số liệu: `results/rank_experiment_summary.csv`
