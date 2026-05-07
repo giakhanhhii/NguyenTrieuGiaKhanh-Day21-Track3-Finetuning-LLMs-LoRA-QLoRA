@@ -16,7 +16,7 @@ Day21_Fine-tuning/
 │   └── day06-fine-tuning-llms-tu-full-fine-tune-en-loraqlora.tex   ← source slides
 │
 ├── 💻 Notebooks (Google Colab)
-│   └── Lab21_LoRA_Finetuning_T4.ipynb       ← cho Free Colab T4 (Qwen2.5-3B)
+│   └── notebooks/Lab21_LoRA_Finetuning_T4.ipynb       ← cho Free Colab T4 (Llama-3.2-3B)
 │
 ├── 📋 Tài liệu học viên
 │   └── Lab21_Rubric_and_Format.md           ← rubric + submission format
@@ -37,7 +37,7 @@ Day21_Fine-tuning/
 ### Cho **Học viên**:
 1. Đọc `Lab21_Rubric_and_Format.md` để biết deliverable + scoring
 2. Chọn notebook phù hợp với GPU:
-   - **Free Colab (T4 16GB)** → `Lab21_LoRA_Finetuning_T4.ipynb`
+   - **Free Colab (T4 16GB)** → `notebooks/Lab21_LoRA_Finetuning_T4.ipynb`
    - **Pro/A100/L4** → `Lab21_LoRA_Finetuning_BigGPU.ipynb`
 3. Upload notebook lên Colab → `Runtime > Change runtime type > GPU` → `Run all`
 4. Hoàn thành lab + viết REPORT.md theo template
