@@ -43,6 +43,45 @@ Day21_Fine-tuning/
 4. Hoàn thành lab + viết REPORT.md theo template
 5. Nộp zip qua LMS
 
+### Submission helpers trong repo này
+- `REPORT.md` — template 6 sections đúng rubric để điền sau khi chạy xong
+- `LINKS.md` — chỗ gom GitHub, Hugging Face Hub, W&B links cho Option B / bonus
+- `requirements.txt` — pin dependencies để tái lập
+- `scripts/validate_lab21_outputs.py` — smoke-check repo và artifact folder sau khi notebook chạy xong
+- `scripts/generate_lab21_report.py` — tự điền phần bảng metrics + 5 examples vào `REPORT.md` từ CSV kết quả
+- `scripts/prepare_lab21_submission.ps1` — lệnh một bước để generate report + validate sau khi đã có kết quả từ Colab
+- `scripts/COLAB_RUN_COMMANDS.md` — cheat sheet các lệnh cần chạy thật
+- `.env` — file local để dán `OPENAI_API_KEY`
+- `scripts/check_openai_gpt4o_mini.py` — gọi thật OpenAI API với `gpt-4o-mini`
+
+### OpenAI model check
+- Nếu cô yêu cầu có phần dùng model OpenAI thật, repo này đã có sẵn `.env` và script check `gpt-4o-mini`.
+- Dán API key của bạn vào [`.env`](</C:/Users/giakh/Project/NguyenTrieuGiaKhanh-Day21-Track3-Finetuning-LLMs-LoRA-QLoRA/.env>), rồi chạy:
+
+```bash
+pip install -r requirements.txt
+python scripts/check_openai_gpt4o_mini.py
+```
+
+- Script sẽ gọi thật OpenAI Responses API với model `gpt-4o-mini` và lưu artifact JSON vào thư mục `openai_checks/`.
+- Lưu ý kỹ: notebook QLoRA trong repo vẫn là pipeline self-hosted với Unsloth để làm bài LoRA/QLoRA. `gpt-4o-mini` là API model, nên không thể thay trực tiếp vào cell `FastLanguageModel.from_pretrained(...)` mà vẫn giữ nguyên flow Unsloth.
+
+### Để bám đúng rubric gốc và tối đa điểm
+1. Chạy [Lab21_LoRA_Finetuning_T4.ipynb](/C:/Users/giakh/Project/NguyenTrieuGiaKhanh-Day21-Track3-Finetuning-LLMs-LoRA-QLoRA/notebooks/Lab21_LoRA_Finetuning_T4.ipynb) trên Colab GPU.
+2. Bảo đảm có đủ artifact:
+   - `adapters/r8`, `adapters/r16`, `adapters/r64`
+   - `results/rank_experiment_summary.csv`
+   - `results/qualitative_comparison.csv`
+   - `results/loss_curve.png`
+3. Nếu bạn copy các file `results/` về repo local, chạy:
+
+```bash
+python scripts/generate_lab21_report.py --results-dir results
+```
+
+4. Điền nốt phần nhận xét, conclusion và reflection trong `REPORT.md`.
+5. Nếu muốn bonus Option B, bật `PUSH_TO_HUB = True` trong notebook và điền `HF_USERNAME`.
+
 ---
 
 ## 📚 Nội dung chính của bài học
